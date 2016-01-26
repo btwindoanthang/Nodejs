@@ -1,5 +1,5 @@
 var http = require("http");
-
+var express = require('express');
 http.createServer(function (request, response) {
 
    // Send the HTTP header 
@@ -8,8 +8,15 @@ http.createServer(function (request, response) {
    response.writeHead(200, {'Content-Type': 'text/plain'});
    
    // Send the response body as "Hello World"
-   response.end('Hello World\n');
+   response.end('Hello World togepi\n');
 }).listen(8081);
+var fs = require("fs");
 
+fs.readFile('input.txt', function (err, data) {
+    if (err) return console.error(err);
+    console.log(data.toString());
+});
+
+console.log("Program Ended");
 // Console will print the message
 console.log('Server running at http://127.0.0.1:8081/');
